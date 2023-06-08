@@ -3,7 +3,7 @@
   background-color: pink;
   width: 1190px;
   height: 400px;
-  padding-top: 56px;
-  padding-right: 45px;
-  padding-left: 45px;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
