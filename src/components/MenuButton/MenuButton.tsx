@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import styles from "./MenuButton.module.css";
 
 function MenuButton() {
-  return (
-    <div>MenuButton</div>
-  )
+  return <h1 className={styles["menuButton"]}>Menu</h1>;
 }
 
 export default MenuButton;
