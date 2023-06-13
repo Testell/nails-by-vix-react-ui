@@ -1,8 +1,32 @@
+
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffa0f1;
+  border-radius: 25px;
+  max-width: 1238px;
+  min-height: 500px;
+  margin-left: 21px;
+  margin-right: 21px;
+  overflow: hidden;
+  
+}
 .logo {
-  height: 400px;
-  width: 400px;
-  padding-top: 56px;
-  padding-left: 440px;
-  padding-right: 440px;
-  position: relative;
+  padding-top: 2px;
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 450px) {
+  .logo {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 349px) {
+  .logo {
+    width: 270px;
+  }
 }

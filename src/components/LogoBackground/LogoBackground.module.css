@@ -1,9 +1,0 @@
-.logoBackgroundBox {
-  position: absolute;
-  background-color: pink;
-  width: 1190px;
-  height: 400px;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
