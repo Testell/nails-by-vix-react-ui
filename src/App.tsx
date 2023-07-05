@@ -1,17 +1,24 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import Logo from "./components/Logo/Logo";
+import { gsap } from "gsap";
+import NavBar from "./components/NavBar/NavBar";
 import HomePage from "./pages/HomePage/HomePage";
+import MenuPage from "./pages/MenuPage/MenuPage";
+import { 
+  BrowserRouter as Router ,
+  Routes,
+  Route
+} from "react-router-dom";
 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <HomePage/>
-      </header>
-    </div>
+    <Router>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={ <HomePage />} />
+        <Route path="/menu" element={ <MenuPage />} />
+      </Routes>
+    </Router>
   );
 }
 

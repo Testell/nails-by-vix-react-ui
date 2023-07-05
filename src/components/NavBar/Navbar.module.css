@@ -1,12 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap");
-
 .navbarContainer {
   min-height: 48px;
-  max-width: 1238px;
+  max-width: 1398px;
   display: flex;
   justify-content: space-between;
-  margin-left: 21px;
-  margin-right: 21px;
+  padding-left: 21px;
+  padding-right: 21px;
+  background-color: #FDD5FD;
 }
 
 .loginButton {
@@ -22,3 +21,9 @@
   font-size: 1.8rem;
   cursor: pointer;
 }
+
+.text-link {
+  color: inherit;
+  text-decoration: inherit;
+}
+

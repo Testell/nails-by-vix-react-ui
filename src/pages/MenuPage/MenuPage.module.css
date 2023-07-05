@@ -1,0 +1,93 @@
+.menu{
+    background-color: #d7cbfe;
+    overflow-y: hidden;
+    min-height: 734px;
+  }
+
+  .menuOptions{
+    display:grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    gap: 1rem;
+    padding-top: 17px;
+  }
+  
+  
+  .pressOns{
+    height: 200px;
+    width: 200px;
+  }
+  
+  .appointments{
+    height: 200px;
+    width: 200px;
+  }
+  
+  .priceListContainer{
+    display:flex;
+    justify-content: center;
+    min-height: 180px;
+    max-width: 1360px;
+    padding-left: 40px;
+    padding-right: 40px;
+    
+    overflow:hidden;
+  }
+  
+  .priceList{
+    color: black;
+    background-color: #fde5ac;
+    border-radius: 25px;
+    font-family: "Bagel Fat One", cursive;
+    padding: 1rem;
+    border-collapse: collapse;
+    width: 100%;
+    height:auto;
+  }
+  
+  th,
+  td{
+    padding: .5rem;
+    text-align: left;
+  }
+  
+  caption,
+  tfoot{
+    padding: .5rem;
+    text-align: center;
+    
+  }
+  
+  caption{
+    font-size: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .menuOptions{
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    .pressOns{
+      height: 300px;
+      width: 300px;
+    }
+  
+    .appointments{
+      height: 300px;
+      width: 300px;
+    }
+  
+    .priceListContainer{
+      margin-left: 190px;
+      margin-right: 190px;
+      min-height: 230px;
+      padding-top: 1px;
+      padding-bottom: 80px;
+    }
+  
+    .priceList{
+      min-height: 230px;
+    }
+  }
+
+  
