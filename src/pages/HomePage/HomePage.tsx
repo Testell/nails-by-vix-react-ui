@@ -2,6 +2,7 @@ import React from 'react'
 import Logo from '../../components/Logo/Logo'
 import NavBar from '../../components/NavBar/NavBar'
 import styles from "./HomePage.module.css";
+import Bio from '../../components/Bio/Bio';
 
 
 function HomePage() {
@@ -10,6 +11,9 @@ function HomePage() {
         <main>
             <section>
                 <Logo/>
+            </section>
+            <section>
+              <Bio/>
             </section>
         </main>
     </main>
