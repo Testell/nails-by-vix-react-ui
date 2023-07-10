@@ -5,7 +5,11 @@ import styles from "./HomePage.module.css";
 import Bio from '../../components/Bio/Bio';
 
 
+
+
+
 function HomePage() {
+  
   return (
     <main className={styles['page']}>
         <main>
