@@ -1,7 +1,7 @@
 .menu{
     background-color: #d7cbfe;
-    overflow-y: hidden;
-    min-height: 734px;
+
+    height: 100vh;
   }
 
   .menuOptions{
@@ -78,8 +78,8 @@
     }
   
     .priceListContainer{
-      margin-left: 190px;
-      margin-right: 190px;
+      padding-left: 190px;
+      padding-right: 190px;
       min-height: 230px;
       padding-top: 1px;
       padding-bottom: 80px;
