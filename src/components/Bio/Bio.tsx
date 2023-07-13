@@ -1,100 +1,110 @@
 import styles from "./Bio.module.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { TextPlugin } from "gsap/TextPlugin";
 import { useRef, useLayoutEffect } from "react";
 gsap.registerPlugin(ScrollTrigger);
-
+gsap.registerPlugin(TextPlugin);
 
 function Bio() {
-    const slides = useRef<HTMLImageElement[]>([]);
-    const slidesContainer = useRef(null);
-    
-    let createSlidesRefs = (slide: HTMLImageElement | null, index: number) => {
-        if (slide) {
-          slides.current[index] = slide;
-        }
-      };
-    
+  const slides = useRef<HTMLImageElement[]>([]);
+  const slidesContainer = useRef(null);
 
-      useLayoutEffect(() => {
-        const totalSlides = slides.current.length;
-        console.log(totalSlides, ScrollTrigger, slidesContainer.current);
-    
-        let ctx = gsap.context(() => {
-          gsap.to(slides.current, {
-            ease: 'none',
-            xPercent: -(100 * (totalSlides - 1)),
-            scrollTrigger: {
-              markers: true,
-              trigger: slidesContainer.current,
-              start: 'center center',
-              end: '+=' + 50 * totalSlides + '%',
-              scrub: true,
-              pin: slidesContainer.current,
-              snap: 1 / (totalSlides - 1),
-            },
-          });
-        }, slidesContainer);
-        return () => ctx.revert();
-      }, []);
+  let createSlidesRefs = (slide: HTMLImageElement | null, index: number) => {
+    if (slide) {
+      slides.current[index] = slide;
+    }
+  };
 
-    return (
-        <main className={styles["page"]}>
-            <header className={styles['header']}>
-                <div>
-                    Private Nail Studio In Chicago Offering...
-                </div>
-            </header>
-            <div className={styles["slideShowSection"]}>
-                <div ref={slidesContainer} className={styles["slideShowContainer"]}>
-                    <div className={styles["textContainer"]}>
-                        <h1>Press Ons</h1>
-                    </div>
-                    <div className={styles["imageContainer"]}>
-                        <img className={styles['image']} src='/images/pressOn1.svg'ref={(e) => createSlidesRefs(e, 0)} />
-                        <img className={styles['image']} src='/images/pressOn2.svg'ref={(e) => createSlidesRefs(e, 1)} />
-                        <img className={styles['image']} src='images/pressOn3.svg'ref={(e) => createSlidesRefs(e, 2)} />
-                    </div>
-                </div>
-            </div>
-            <footer className={styles["footer"]}>
-                <h1>Footer</h1>
-            </footer>
-        </main>
+  useLayoutEffect(() => {
+    const totalSlides = slides.current.length;
+    console.log(totalSlides, ScrollTrigger, slidesContainer.current);
 
+    let ctx = gsap.context(() => {
+      gsap.to(slides.current, {
+        ease: 'none',
+        xPercent: -(100 * (totalSlides - 1)),
+        scrollTrigger: {
+          markers: true,
+          trigger: slidesContainer.current,
+          start: 'center center',
+          end: '+=' + 50 * totalSlides + '%',
+          scrub: true,
+          pin: slidesContainer.current,
+          snap: 1 / (totalSlides - 1),
+          onUpdate: (self: any) => {
+            const slideIndex = Math.round(self.progress * (totalSlides - 1));
+            const slideText = getSlideText(slideIndex);
+            gsap.to("#myText", { duration: 1, text: slideText});
+          },
+        },
+      });
+    }, slidesContainer);
 
-      /*<main className={styles['page']}>
-          <header className={styles['header']}>
-            <div>
-                Private Nail Studio In Chicago Offering...
-            </div>
-          </header>
+    const getSlideText = (slideIndex: number): string => {
+      switch (slideIndex) {
+        case 0:
+          return "Press Ons";
+        case 1:
+          return "Press Ons";
+        case 2:
+          return "Press Ons";
+        case 3:
+          return "Press Ons";
+        case 4:
+          return "Structured Gel Manicure";
+        case 5:
+          return "Structured Gel Manicure";
+        case 6:
+          return "Structured Gel Manicure";
+        case 7:
+          return "Gel Extension";
+        case 8:
+          return "Gel Extension";
+        case 9:
+          return "Gel Extension";
+        default:
+          return "";
+      }
+    };
 
-          <div className={styles['pressOnsContainer']}>
-            
-            <div className={styles['image1Container']}>
-                <img className={styles['image1']} src='/images/pressOn1.svg'/>
-            </div>
-            <h1 className={styles['pressOnsText']}>
-                Press Ons
-            </h1>
-            <div className={styles["textContainer"]}>
-                <h1>Custom Design & Charms</h1>
-                <h2>US Shipping</h2>
-            </div>
-            <div className={styles["image2Container"]}>
-                <img className={styles['image2']} src='/images/pressOn2.svg'/>
-            </div>
-            <div className={styles["image3Container"]}>
-                <img className={styles["image3"]} src='images/pressOn3.svg'/>
-            </div>
-            <div className={styles["image4Container"]}>
-                <img className={styles["image4"]} src='images/pressOn4.svg'/>
-            </div>
+    return () => ctx.revert();
+  }, []);
 
+  return (
+    <main className={styles["page"]}>
+      <header className={styles['header']}>
+        <div>
+          Private Nail Studio In Chicago Offering...
+        </div>
+      </header>
+      <div ref={slidesContainer} className={styles["slideShowSection"]}>
+        <div className={styles["slideShowContainer"]}>
+          <div className={styles["textContainer"]}>
+            <div id='myText'>Press Ons</div>
           </div>
-      </main>*/
-    )
-  }
-  
-  export default Bio;
+          <div className={styles["imageContainer"]}>
+            <img className={styles['image']} src='/images/pressOn1.svg' ref={(e) => createSlidesRefs(e, 0)} />
+            <img className={styles['image']} src='/images/pressOn2.svg' ref={(e) => createSlidesRefs(e, 1)} />
+            <img className={styles['image']} src='/images/pressOn3.svg' ref={(e) => createSlidesRefs(e, 2)} />
+            <img className={styles['image']} src='/images/pressOn4.svg' ref={(e) => createSlidesRefs(e, 3)} />
+            <img className={styles['image']} src='/images/gelManicure1.svg' ref={(e) => createSlidesRefs(e, 4)} />
+            <img className={styles['image']} src='/images/gelManicure2.svg' ref={(e) => createSlidesRefs(e, 5)} />
+            <img className={styles['image']} src='/images/gelManicure3.svg' ref={(e) => createSlidesRefs(e, 6)} />
+            <img className={styles['image']} src='/images/gelExtension1.svg' ref={(e) => createSlidesRefs(e, 7)} />
+            <img className={styles['image']} src='/images/gelExtension2.svg' ref={(e) => createSlidesRefs(e, 8)} />
+            <img className={styles['image']} src='/images/gelExtension3.svg' ref={(e) => createSlidesRefs(e, 9)} />
+          </div>
+        </div>
+        <div className={styles["customDesign"]}>
+          <h2>Custom Design & Charms</h2>
+        </div>
+      </div>
+      <footer className={styles["footer"]}>
+        <h1>Footer</h1>
+      </footer>
+    </main>
+  );
+}
+
+export default Bio;

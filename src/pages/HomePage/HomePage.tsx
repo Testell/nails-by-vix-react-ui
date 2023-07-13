@@ -8,6 +8,7 @@ import Bio from '../../components/Bio/Bio';
 
 
 
+
 function HomePage() {
   
   return (

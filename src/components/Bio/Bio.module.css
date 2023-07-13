@@ -6,31 +6,58 @@
     place-items: center;
     align-items: center;
     gap: 1rem;
+    font-family: "Bagel Fat One", cursive;
   }
   
   .textContainer{
     font-family: "Bagel Fat One", cursive;
     font-size: 32px;
   }
+
   .imageContainer {
     width: 320px;
     height: 335px;
     border-radius: 25px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-  
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     place-items: center;
     align-items: center;
     background-image: url("/public/images/gradientBio.svg");
     overflow: hidden;
-
     animation: bg-animation 100s infinite alternate;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
   }
   
   .image {
     padding: 1rem;
     width: 290px;
     height: 300px;
+    
+  }
+
+  /*.textContainer{
+    width: 320px;
+    height: 335px;
+    border-radius: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+    align-items: center;
+    
+    overflow: hidden;
+  }*/
+
+  .textImage{
+    padding: 1rem;
+    width: 290px;
+    height: 300px;
+  }
+
+  .customDesign{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-family: "Bagel Fat One", cursive;
   }
   
   .footer {
@@ -46,12 +73,6 @@
       grid-template-columns: 1fr 1fr;
     }
   }
-
-
-
-
-
-
 
 .page{
     background-color: #FDD5FD;
@@ -96,66 +117,9 @@
     }
 }
 
-.image1{
-    width:290px;
-    height: 300px;
-}
-
-.image2Container{
-    width: 320px;
-    height: 335px;
-    border-radius: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url("/public/images/gradientBio.svg");
-    background-size: 400%;
-    animation: bg-animation 100s infinite alternate;
-}
-
-.image2{
-    width:290px;
-    height: 300px;
-}
-
-.image3Container{
-    width: 320px;
-    height: 335px;
-    border-radius: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url("/public/images/gradientBio.svg");
-    background-size: 400%;
-    animation: bg-animation 100s infinite alternate;
-}
-
-.image3{
-    width:290px;
-    height: 300px;
-}
-
-.image4Container{
-    width: 320px;
-    height: 335px;
-    border-radius: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url("/public/images/gradientBio.svg");
-    background-size: 400%;
-    animation: bg-animation 100s infinite alternate;
-}
-
-.image4{
-    width:290px;
-    min-height: 300px;
-}
-
 .pressOnsText{
     font-size: 32px;
 }
-
 
 @media (min-width: 768px) {
     .pressOnsContainer{

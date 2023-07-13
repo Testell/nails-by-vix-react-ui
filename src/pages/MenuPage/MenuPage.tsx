@@ -15,6 +15,7 @@ function MenuPage(){
                         <caption>
                         Price List
                         </caption>
+                        <tbody>
                         <tr>
                         <th>Press Ons</th>
                         <th>$45</th>
@@ -31,6 +32,7 @@ function MenuPage(){
                         <th>Long/XL Gel Extension</th>
                         <th>$100</th>
                         </tr>
+                        </tbody>
                     </table>
                 </div>
                 
