@@ -1,36 +1,12 @@
 
-.menu{
-    background-color: #d7cbfe;
-    margin: 0;
-    min-height: 100vh;
-  }
-
-  .menuOptions{
-    display:grid;
-    grid-template-columns: 1fr;
-    place-items: center;
-    gap: 1rem;
-    padding-top: 17px;
-  }
-  
-  
-  .pressOns{
-    height: 200px;
-    width: 200px;
-  }
-  
-  .appointments{
-    height: 200px;
-    width: 200px;
-  }
-  
-  .priceListContainer{
+.priceListContainer{
     display:flex;
     justify-content: center;
     min-height: 180px;
     max-width: 1360px;
     padding-left: 40px;
     padding-right: 40px;
+    overflow:hidden;
   }
   
   .priceList{
@@ -38,6 +14,7 @@
     background-color: #fde5ac;
     border-radius: 25px;
     font-family: "Bagel Fat One", cursive;
+    font-size: 18px;
     padding: 1rem;
     border-collapse: collapse;
     width: 100%;
@@ -75,6 +52,16 @@
       height: 300px;
       width: 300px;
     }
-  }
-
   
+    .priceListContainer{
+      padding-left: 190px;
+      padding-right: 190px;
+      min-height: 230px;
+      padding-top: 1px;
+      padding-bottom: 80px;
+    }
+  
+    .priceList{
+      min-height: 230px;
+    }
+  }

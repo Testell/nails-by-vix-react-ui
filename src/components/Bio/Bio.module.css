@@ -24,7 +24,7 @@
     align-items: center;
     background-image: url("/public/images/gradientBio.svg");
     overflow: hidden;
-    animation: bg-animation 100s infinite alternate;
+    animation: bg-animation 50s infinite alternate;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
   }
   
