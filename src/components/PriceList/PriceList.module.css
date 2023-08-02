@@ -19,6 +19,7 @@
     border-collapse: collapse;
     width: 100%;
     height:auto;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
   }
   
   th,

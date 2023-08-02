@@ -1,0 +1,96 @@
+
+.pressOnForm{
+    display: grid;
+    grid-template-rows: 1fr;
+    place-items: center;
+    gap: 1rem;
+    font-family: "Bagel Fat One", cursive;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.inspo{
+    font-size: 18px;
+    word-wrap: break-word;
+    letter-spacing: .5px;
+}
+
+.field{
+    display: grid;
+    grid-template-rows: 1fr;
+    place-items: center;
+    gap: .5rem;
+}
+
+.label{
+    font-size: 25px;
+}
+
+.design{
+    min-height: 75px;
+}
+
+input:focus{
+    outline: none;
+    border-color:black; 
+}
+
+input{
+    border-radius: 20px;
+    background-color: #D7CBFE;
+    outline: none;
+    border-color: #bfbfbf;
+    border: 1rem;
+    font-family: "Bagel Fat One", cursive;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+    font-size: 20px;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+    border-color: black;
+}
+
+textarea{
+    width: 100%;
+    min-height: 75px;
+    border-radius: 20px;
+    background-color: #D7CBFE;
+    font-family: "Bagel Fat One", cursive;
+    text-align: center;
+    color: black;
+    resize: none;
+    border-color: #bfbfbf;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+    font-size: 20px;
+}
+
+
+
+textarea::-webkit-scrollbar{
+    width: 0px;
+}
+
+button{
+    border-radius: 20px;
+    background-color: #D7CBFE;
+    outline: none;
+    border:none;
+    font-family: "Bagel Fat One", cursive;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px #D7CBFE inset !important;
+    font-family: "Bagel Fat One", cursive;
+}
+
+
+
