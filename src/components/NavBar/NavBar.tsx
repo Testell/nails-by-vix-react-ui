@@ -23,7 +23,7 @@ function NavBar() {
       <div className={styles["navbarContainer"]}>
         <div className={styles["loginButton"]}>
           <Link to="/" className={styles["text-link"]}>
-          <div className={styles["loginButton"]}>Home</div>
+          <div className={styles["loginButton"]}>NailsByVix</div>
           </Link>
         </div>
         <div className={styles["menuButton"]}>
