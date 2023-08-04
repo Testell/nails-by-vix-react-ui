@@ -3,6 +3,7 @@ import { useRef, useLayoutEffect } from "react";
 import { gsap } from "gsap";
 import { Flip } from "gsap/Flip";
 import PressOnForm from "../PressOnForm/PressOnForm";
+import PressOnOrder from "../../models/PressOnOrder";
 gsap.registerPlugin(Flip);
 
 
@@ -29,7 +30,7 @@ function MenuOptions (){
                         <div>Press Ons</div>
                     </div>
                     <div className={styles["form"]}>
-                        <PressOnForm/>
+                        <PressOnForm pressOnOrder={new PressOnOrder(0, "", "", "", "", "")}/>
                     </div>
                 </div>
                 <div className={styles["menuOption"]}>
