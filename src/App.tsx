@@ -8,6 +8,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import AdminDashBoard from "./pages/Admin/AdminDashBoard/AdminDashBoard";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={ <HomePage />} />
         <Route path="/menu" element={ <MenuPage />} />
+        <Route path="/admin/dashboard" element={ <AdminDashBoard/>} />
       </Routes>
     </Router>
   );
