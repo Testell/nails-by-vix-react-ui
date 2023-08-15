@@ -34,4 +34,4 @@ PressOnOrderAdmin.proptypes = {
     pressOnOrder: PropTypes.object
 }
 
-export default PressOnOrder;
+export default PressOnOrderAdmin;
