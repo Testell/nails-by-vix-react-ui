@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo from '../../components/Logo/Logo'
-import NavBar from '../../components/NavBar/NavBar'
+import NavBar from '../../components/Shared/NavBar/NavBar'
 import styles from "./HomePage.module.css";
 import Bio from '../../components/Bio/Bio';
 

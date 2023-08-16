@@ -1,6 +1,6 @@
 import "./App.css";
 import { gsap } from "gsap";
-import NavBar from "./components/NavBar/NavBar";
+import NavBar from "./components/Shared/NavBar/NavBar";
 import HomePage from "./pages/HomePage/HomePage";
 import MenuPage from "./pages/MenuPage/MenuPage";
 import { 

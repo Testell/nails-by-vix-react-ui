@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "../../hooks/useForm";
 import PressOnOrder from "../../models/PressOnOrder"
 import styles from "./PressOnForm.module.css";
-import DropDown from "../DropDown/DropDown";
+import DropDown from "../Shared/DropDown/DropDown";
 import PropTypes from 'prop-types';
 
 interface PressOnFormProps {
