@@ -1,8 +1,11 @@
 import styles from "./Card.module.css";
 
-function Card () {
+
+function Card (){
+    
     return(
-        <div>
+        
+        <div className={styles["cardContainer"]}>
             
         </div>
     )
