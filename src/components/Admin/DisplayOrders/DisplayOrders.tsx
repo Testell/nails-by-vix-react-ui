@@ -10,7 +10,7 @@ function DisplayOrders() {
     useEffect(() => {
         getOrders()
         .then(ords => setOrders(ords))
-        .catch((error:any) => console.log(error));
+        .catch((error: Error) => console.error("An error as occured:", error.message));
     },[]);
 
     return(
