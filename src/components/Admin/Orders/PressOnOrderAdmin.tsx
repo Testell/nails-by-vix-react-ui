@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import PressOnOrder from "../../../models/PressOnOrder";
+import styles from "./PressOnOrderAdmin.module.css";
 
 interface PressOnOrderAdminProps {
     pressOnOrder: PressOnOrder;
@@ -7,8 +8,7 @@ interface PressOnOrderAdminProps {
 
 function PressOnOrderAdmin (props:PressOnOrderAdminProps) {
     return(
-        <div>
-            <div>
+            <div className={styles['orderContainer']}>
                 <h1>Order: #{props.pressOnOrder.id}</h1>
                 <p>
                     <span>Size: </span>{props.pressOnOrder.size}
@@ -26,7 +26,6 @@ function PressOnOrderAdmin (props:PressOnOrderAdminProps) {
                     <span>Design: </span>{props.pressOnOrder.design}
                 </p>
             </div>
-        </div>
     )
 }
 
