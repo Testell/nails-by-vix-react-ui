@@ -69,14 +69,16 @@ function Bio() {
     }; */
     let ctx = gsap.context(() => {
       const array = [
-        'Purple',
-        'Purple',
-        'Blue',
-        'Blue',
-        'Green',
-        'Green',
-        'Red',
-        '',
+        'Press Ons',
+        'Press Ons',
+        'Press Ons',
+        'Press Ons',
+        'Structured Gel Manicure',
+        'Structured Gel Manicure',
+        'Structured Gel Manicure',
+        'Gel Extension',
+        'Gel Extension',
+        'Gel Extension',
       ];
 
       const tl = gsap.timeline({
@@ -86,7 +88,7 @@ function Bio() {
           end: '+=' + 50 * totalSlides + '%',
           scrub: true,
           pin: slidesContainer.current,
-          snap: 1 / (array.length - 1),
+          snap: 1 / (totalSlides - 1),
           markers: true,
         },
       });
@@ -100,7 +102,7 @@ function Bio() {
       });
 
       tl.to(
-        '.image',
+        slides.current,
         {
           duration: 1 * (array.length - 1),
           ease: 'none',
@@ -108,7 +110,7 @@ function Bio() {
         },
         0
       );
-    }, slidesContainer);
+    }, slidesContainer); 
 
     return () => ctx.revert();
   }, []);
@@ -126,16 +128,16 @@ function Bio() {
             <div id='myText'>Press Ons</div>
           </div>
           <div className={styles["imageContainer"]}>
-            <img className={styles['image']} src='/images/pressOn1.svg' ref={(e) => createSlidesRefs(e, 0)} />
-            <img className={styles['image']} src='/images/pressOn2.svg' ref={(e) => createSlidesRefs(e, 1)} />
-            <img className={styles['image']} src='/images/pressOn3.svg' ref={(e) => createSlidesRefs(e, 2)} />
-            <img className={styles['image']} src='/images/pressOn4.svg' ref={(e) => createSlidesRefs(e, 3)} />
-            <img className={styles['image']} src='/images/gelManicure1.svg' ref={(e) => createSlidesRefs(e, 4)} />
-            <img className={styles['image']} src='/images/gelManicure2.svg' ref={(e) => createSlidesRefs(e, 5)} />
-            <img className={styles['image']} src='/images/gelManicure3.svg' ref={(e) => createSlidesRefs(e, 6)} />
-            <img className={styles['image']} src='/images/gelExtension1.svg' ref={(e) => createSlidesRefs(e, 7)} />
-            <img className={styles['image']} src='/images/gelExtension2.svg' ref={(e) => createSlidesRefs(e, 8)} />
-            <img className={styles['image']} src='/images/gelExtension3.svg' ref={(e) => createSlidesRefs(e, 9)} />
+            <img className={styles['image']} src='/images/pressOn1.svg' alt="" ref={(e) => createSlidesRefs(e, 0)} />
+            <img className={styles['image']} src='/images/pressOn2.svg' alt="" ref={(e) => createSlidesRefs(e, 1)} />
+            <img className={styles['image']} src='/images/pressOn3.svg' alt="" ref={(e) => createSlidesRefs(e, 2)} />
+            <img className={styles['image']} src='/images/pressOn4.svg' alt="" ref={(e) => createSlidesRefs(e, 3)} />
+            <img className={styles['image']} src='/images/gelManicure1.svg' alt="" ref={(e) => createSlidesRefs(e, 4)} />
+            <img className={styles['image']} src='/images/gelManicure2.svg' alt="" ref={(e) => createSlidesRefs(e, 5)} />
+            <img className={styles['image']} src='/images/gelManicure3.svg' alt="" ref={(e) => createSlidesRefs(e, 6)} />
+            <img className={styles['image']} src='/images/gelExtension1.svg' alt="" ref={(e) => createSlidesRefs(e, 7)} />
+            <img className={styles['image']} src='/images/gelExtension2.svg' alt="" ref={(e) => createSlidesRefs(e, 8)} />
+            <img className={styles['image']} src='/images/gelExtension3.svg' alt="" ref={(e) => createSlidesRefs(e, 9)} />
           </div>
         </div>
         <div className={styles["customDesign"]}>
