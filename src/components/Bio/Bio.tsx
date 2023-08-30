@@ -20,7 +20,7 @@ function Bio() {
     const totalSlides = slides.current.length;
     console.log(totalSlides, ScrollTrigger, slidesContainer.current);
 
-    let ctx = gsap.context(() => {
+    /*let ctx = gsap.context(() => {
       gsap.to(slides.current, {
         ease: 'none',
         xPercent: -(100 * (totalSlides - 1)),
@@ -66,7 +66,49 @@ function Bio() {
         default:
           return "";
       }
-    };
+    }; */
+    let ctx = gsap.context(() => {
+      const array = [
+        'Purple',
+        'Purple',
+        'Blue',
+        'Blue',
+        'Green',
+        'Green',
+        'Red',
+        '',
+      ];
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: slidesContainer.current,
+          start: 'center center',
+          end: '+=' + 50 * totalSlides + '%',
+          scrub: true,
+          pin: slidesContainer.current,
+          snap: 1 / (array.length - 1),
+          markers: true,
+        },
+      });
+
+      array.forEach((item) => {
+        tl.to('#myText', {
+          duration: 1,
+          ease: 'none',
+          text: item,
+        });
+      });
+
+      tl.to(
+        '.image',
+        {
+          duration: 1 * (array.length - 1),
+          ease: 'none',
+          xPercent: -(100 * (totalSlides - 1)),
+        },
+        0
+      );
+    }, slidesContainer);
 
     return () => ctx.revert();
   }, []);
