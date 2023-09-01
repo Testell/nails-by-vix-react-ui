@@ -93,13 +93,14 @@ function Bio() {
         },
       });
 
-      array.forEach((item) => {
+      /*array.forEach((item) => {
         tl.to('#myText', {
           duration: 1,
           ease: 'none',
           text: item,
         });
-      });
+      });*/
+      
 
       tl.to(
         slides.current,
