@@ -28,7 +28,7 @@ const dropIn = {
     },
 };
 
-const Modal = ({ handleClose, text }: ModalProps) => {
+const Modal = ({ handleClose, text}: ModalProps) => {
   return (
     <Backdrop onClick={handleClose}>
       <motion.div
