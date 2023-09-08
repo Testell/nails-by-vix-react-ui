@@ -17,104 +17,69 @@ function Bio() {
   };
 
   useLayoutEffect(() => {
-    const totalSlides = slides.current.length;
-    console.log(totalSlides, ScrollTrigger, slidesContainer.current);
+  const totalSlides = slides.current.length;
 
-    /*let ctx = gsap.context(() => {
-      gsap.to(slides.current, {
+  let ctx = gsap.context(() => {
+    const array = [
+      'Press Ons',
+      'Press Ons',
+      'Press Ons',
+      'Press Ons',
+      'Structured Gel Manicure',
+      'Structured Gel Manicure',
+      'Structured Gel Manicure',
+      'Gel Extension',
+      'Gel Extension',
+      'Gel Extension',
+    ];
+
+    const tlImages = gsap.timeline({
+      scrollTrigger: {
+        trigger: slidesContainer.current,
+        start: 'center center',
+        end: '+=' + 50 * totalSlides + '%',
+        scrub: true,
+        pin: slidesContainer.current,
+        snap: 1 / (totalSlides - 1),
+        markers: true,
+      },
+    });
+
+    tlImages.to(
+      slides.current,
+      {
+        duration: 1 * (array.length - 1),
         ease: 'none',
         xPercent: -(100 * (totalSlides - 1)),
-        scrollTrigger: {
-          markers: true,
-          trigger: slidesContainer.current,
-          start: 'center center',
-          end: '+=' + 50 * totalSlides + '%',
-          scrub: true,
-          pin: slidesContainer.current,
-          snap: 1 / (totalSlides - 1),
-          onUpdate: (self: any) => {
-            const slideIndex = Math.round(self.progress * (totalSlides - 1));
-            const slideText = getSlideText(slideIndex);
-            gsap.to("#myText", { duration: 1, text: slideText});
-          },
-        },
-      });
-    }, slidesContainer);
+      },
+      0
+    );
 
-    const getSlideText = (slideIndex: number): string => {
-      switch (slideIndex) {
-        case 0:
-          return "Press Ons";
-        case 1:
-          return "Press Ons";
-        case 2:
-          return "Press Ons";
-        case 3:
-          return "Press Ons";
-        case 4:
-          return "Structured Gel Manicure";
-        case 5:
-          return "Structured Gel Manicure";
-        case 6:
-          return "Structured Gel Manicure";
-        case 7:
-          return "Gel Extension";
-        case 8:
-          return "Gel Extension";
-        case 9:
-          return "Gel Extension";
-        default:
-          return "";
-      }
-    }; */
-    let ctx = gsap.context(() => {
-      const array = [
-        'Press Ons',
-        'Press Ons',
-        'Press Ons',
-        'Press Ons',
-        'Structured Gel Manicure',
-        'Structured Gel Manicure',
-        'Structured Gel Manicure',
-        'Gel Extension',
-        'Gel Extension',
-        'Gel Extension',
-      ];
+    const tlText = gsap.timeline({
+      scrollTrigger: {
+        trigger: slidesContainer.current,
+        start: 'center center',
+        end: '+=' + 50 * totalSlides + '%',
+        scrub: true,
+        pin: slidesContainer.current,
+        snap: 1 / (totalSlides - 1),
+        markers: true,
+      },
+    });
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: slidesContainer.current,
-          start: 'center center',
-          end: '+=' + 50 * totalSlides + '%',
-          scrub: true,
-          pin: slidesContainer.current,
-          snap: 1 / (totalSlides - 1),
-          markers: true,
-        },
-      });
+    array.forEach((item, index) => {
+      tlText.to('#myText', {
+        duration: 1,
+        ease: 'none',
+        text: item,
+      }, index);
+    });
+    
+  }, slidesContainer);
 
-      /*array.forEach((item) => {
-        tl.to('#myText', {
-          duration: 1,
-          ease: 'none',
-          text: item,
-        });
-      });*/
-      
+  return () => ctx.revert();
+}, []);
 
-      tl.to(
-        slides.current,
-        {
-          duration: 1 * (array.length - 1),
-          ease: 'none',
-          xPercent: -(100 * (totalSlides - 1)),
-        },
-        0
-      );
-    }, slidesContainer); 
-
-    return () => ctx.revert();
-  }, []);
 
   return (
     <main className={styles["page"]}>
