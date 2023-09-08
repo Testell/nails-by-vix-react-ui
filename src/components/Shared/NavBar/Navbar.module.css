@@ -26,3 +26,9 @@
   text-decoration: inherit;
 }
 
+.cart{
+  font-family: "Bagel Fat One", cursive;
+  margin-top: auto;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
