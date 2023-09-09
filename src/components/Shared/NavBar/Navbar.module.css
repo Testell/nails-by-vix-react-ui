@@ -2,9 +2,10 @@
   min-height: 48px;
   max-width: 1398px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding-left: 21px;
   padding-right: 21px;
+  margin: 0;
 }
 
 .loginButton {
@@ -36,4 +37,15 @@
 .cartButton{
   background-color: transparent;
   box-shadow: 0;
+  align-self: right;
+  padding-right: 15px;
+}
+
+ 
+li:first-child{
+  width: 100%;
+ }
+
+ ul {
+  list-style-type: none;
 }

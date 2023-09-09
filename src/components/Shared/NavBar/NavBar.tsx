@@ -38,13 +38,13 @@ function NavBar() {
 
   return (
     <div style={{backgroundColor: color}}>
-      <div className={styles["navbarContainer"]}>
-        <div className={styles["loginButton"]}>
+      <ul className={styles["navbarContainer"]}>
+        <li className={styles["loginButton"]}>
           <Link to="/" className={styles["text-link"]}>
           <div className={styles["loginButton"]}>NailsByVix</div>
           </Link>
-        </div>
-        <div className={styles["cart"]}>
+        </li>
+        <li className={styles["cart"]}>
           <motion.div
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9}}
@@ -52,19 +52,20 @@ function NavBar() {
             onClick={() => (modalOpen ? close() : open())}
           >
             <CartIcon/>
+            
           </motion.div>
           <AnimatePresence
             initial={false}
             mode="wait">
               {modalOpen && <Modal handleClose={close} text="Your modal content here" />}
           </AnimatePresence>
-        </div>
-        <div className={styles["menuButton"]}>
+        </li>
+        <li className={styles["menuButton"]}>
           <Link to="/Menu" className={styles["text-link"]}>
             <div className={styles["menuButton"]}>Menu</div>
           </Link>
-        </div>
-      </div> 
+        </li>
+      </ul> 
     </div>
   );
 }
