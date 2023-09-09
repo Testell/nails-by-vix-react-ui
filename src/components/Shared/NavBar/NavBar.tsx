@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import styles from "./Navbar.module.css";
 import { Link } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Modal from "../Modal/Modal";
 
 
@@ -13,8 +13,15 @@ function NavBar() {
 
     const [modalOpen, setModalOpen] = useState(false);
 
-    const close= () => setModalOpen(false);
-    const open = () => setModalOpen(true);
+    const close = () => {
+      console.log("Closing modal");
+      setModalOpen(false);
+    };
+    
+    const open = () => {
+      console.log("Opening modal");
+      setModalOpen(true);
+    };
     
     useEffect(() =>{
       if(location.pathname == '/Menu'){
@@ -42,8 +49,11 @@ function NavBar() {
           >
             Cart
           </motion.button>
-
-        
+          <AnimatePresence
+            initial={false}
+            mode="wait">
+              {modalOpen && <Modal handleClose={close} text="Your modal content here" />}
+          </AnimatePresence>
         </div>
         <div className={styles["menuButton"]}>
           <Link to="/Menu" className={styles["text-link"]}>

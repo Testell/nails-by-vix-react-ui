@@ -40,7 +40,14 @@ const Modal = ({ handleClose, text}: ModalProps) => {
         exit="exit"
         >
             <p>{text}</p>
-            <button onClick={handleClose}>Close</button>
+            <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9}}
+            className={styles["modalButton"]}
+            onClick={handleClose}
+            >
+                Close
+            </motion.button>
       </motion.div>
     </Backdrop>
   );
