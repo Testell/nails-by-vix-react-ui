@@ -32,3 +32,8 @@
   font-size: 1.8rem;
   cursor: pointer;
 }
+
+.cartButton{
+  background-color: transparent;
+  box-shadow: 0;
+}

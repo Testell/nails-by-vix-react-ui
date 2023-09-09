@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from "framer-motion";
 import Modal from "../Modal/Modal";
+import CartIcon from "../Icons/CartIcon";
+
+
+
 
 
 function NavBar() {
@@ -41,14 +45,14 @@ function NavBar() {
           </Link>
         </div>
         <div className={styles["cart"]}>
-          <motion.button
+          <motion.div
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9}}
             className={styles["cartButton"]}
             onClick={() => (modalOpen ? close() : open())}
           >
-            Cart
-          </motion.button>
+            <CartIcon/>
+          </motion.div>
           <AnimatePresence
             initial={false}
             mode="wait">
