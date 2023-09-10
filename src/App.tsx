@@ -9,18 +9,21 @@ import {
   Route
 } from "react-router-dom";
 import AdminDashBoard from "./pages/Admin/AdminDashBoard/AdminDashBoard";
+import CartProvider from "./contexts/CartContext/CartContextProvider";
 
 
 function App() {
   return (
-    <Router>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={ <HomePage />} />
-        <Route path="/menu" element={ <MenuPage />} />
-        <Route path="/admin/dashboard" element={ <AdminDashBoard/>} />
-      </Routes>
-    </Router>
+    <CartProvider>
+      <Router>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={ <HomePage />} />
+          <Route path="/menu" element={ <MenuPage />} />
+          <Route path="/admin/dashboard" element={ <AdminDashBoard/>} />
+        </Routes>
+      </Router>
+    </CartProvider>
   );
 }
 
