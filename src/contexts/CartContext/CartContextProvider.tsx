@@ -104,3 +104,5 @@ export function CartProvider({ children }: CartProviderProps) {
     );
 }
 
+export default CartProvider;
+
