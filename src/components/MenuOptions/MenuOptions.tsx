@@ -30,7 +30,7 @@ function MenuOptions (){
                         <div>Press Ons</div>
                     </div>
                     <div className={styles["form"]}>
-                        <PressOnForm pressOnOrder={new PressOnOrder(0, "", "", "", "", "", false)}/>
+                        <PressOnForm pressOnOrder={new PressOnOrder(0, "", "", "", "", "", 40.00, false)}/>
                     </div>
                 </div>
                 <div className={styles["menuOption"]}>
