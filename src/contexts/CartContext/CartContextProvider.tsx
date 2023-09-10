@@ -1,9 +1,10 @@
 import React, { ReactNode, useState } from "react";
 import { CartContext, CartContextType } from "./CartContext"
+import { getProductData } from "../../models/ProductsStore";
 
 type CartProduct = {
-    id: number; // Assuming 'id' is a number
-    quantity: number; // You may have other properties here
+    id: number; 
+    quantity: number; 
 };
 
 type CartProviderProps = {
@@ -25,7 +26,67 @@ export function CartProvider({ children }: CartProviderProps) {
 
     function addToCart(id: number) {
         const quantity = getProductQuantity(id);
+
+        if (quantity === 0){
+            setCartProducts(
+                [
+                    ...cartProducts,
+                    {
+                        id: id,
+                        quantity: 1
+                    }
+                ]
+            )
+        }else {
+            setCartProducts(
+                cartProducts.map(
+                    product =>
+                    product.id === id
+                    ? { ...product, quantity: product.quantity + 1}
+                    : product
+                )
+            )
+        }
     }
+
+    function removeOneFromCart(id: number) {
+        const quantity = getProductQuantity(id);
+
+        if(quantity == 1) {
+            deleteFromCart(id);
+        }else{
+            setCartProducts(
+                cartProducts.map(
+                    product =>
+                    product.id === id? { ...product,quantity: product.quantity -1}
+                    :product
+                )
+            )
+        }
+    }
+
+    function deleteFromCart(id: number) {
+        setCartProducts(
+            cartProducts =>
+            cartProducts.filter(currentProduct => {
+                return currentProduct.id != id;
+            })
+        )
+    }
+
+    function getTotalCost() {
+        let totalCost = 0;
+        cartProducts.forEach((cartItem) => {
+            const productData = getProductData(cartItem.id);
+    
+            if (productData) {
+                totalCost += productData.price * cartItem.quantity;
+            }
+        });
+    
+        return totalCost;
+    }
+    
     
     const contextValue: CartContextType = {
         items: [],
