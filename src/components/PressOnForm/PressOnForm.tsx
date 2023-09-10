@@ -65,7 +65,7 @@ function PressOnForm(props:PressOnFormProps){
                     <textarea value={design} onChange={ (e) => setDesign(e.target.value)} placeholder="Colors, Vibes, Characters"></textarea>
                 </div>
                 <div className={styles["inspo"]}>Send any inspo photos to nailsbyvix_ on Insta</div>
-                <button type="submit">Check Out</button>
+                <button type="submit">Add To Cart</button>
             </form>
         </div>
     )
