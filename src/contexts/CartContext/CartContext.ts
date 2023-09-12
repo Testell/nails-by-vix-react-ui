@@ -4,7 +4,7 @@ import React, { createContext } from "react";
 export type CartContextType = {
     items: any[]; 
     getProductQuantity: (id: number) => number;
-    addToCart: () => void;
+    addToCart: (id: number) => void;
     removeFromCart: () => void;
     deleteFromCart: () => void;
     getTotalCost: () => void;
