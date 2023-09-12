@@ -4,29 +4,28 @@ import PressOnOrder from "../../models/PressOnOrder"
 import styles from "./PressOnForm.module.css";
 import DropDown from "../Shared/DropDown/DropDown";
 import PropTypes from 'prop-types';
+import { CartContext } from "../../contexts/CartContext/CartContext";
+import { useContext } from "react";
 
 interface PressOnFormProps {
     pressOnOrder: PressOnOrder;
+    product?: {
+        id: number;
+      };
   }
 
 function PressOnForm(props:PressOnFormProps){
-   // const initialState: PressOnOrder = new PressOnOrder(0, "", "", "", false, "");
-
-   // const { onChange, onChangeInput, onSubmit, values } = useForm(
-     //   addToCart,
-      //  initialState
-   // );
-
-    /*async function addToCart(){
-
-    }*/
-
+   
     const [size, setSize] = useState(props.pressOnOrder.size);
     const [length, setLength] = useState(props.pressOnOrder.lengths);
     const [shape, setShape] = useState(props.pressOnOrder.shape);
     const [charms, setCharms] = useState(props.pressOnOrder.charms);
     const [ design, setDesign] = useState(props.pressOnOrder.design);
 
+    const product = props.product;
+    const cart = useContext(CartContext);
+    const productQuantity = product?.id ? cart?.getProductQuantity(product.id) : 1;
+    console.log(cart?.items);
    // const [selectedLength, setLengthOption] = useState('');
    // const [selectedCharm, setCharmOption] = useState('');
 
@@ -65,7 +64,7 @@ function PressOnForm(props:PressOnFormProps){
                     <textarea value={design} onChange={ (e) => setDesign(e.target.value)} placeholder="Colors, Vibes, Characters"></textarea>
                 </div>
                 <div className={styles["inspo"]}>Send any inspo photos to nailsbyvix_ on Insta</div>
-                <button type="submit">Add To Cart</button>
+                <button type="submit" onClick={() => product && cart?.addToCart(product.id)}>Add To Cart</button>
             </form>
         </div>
     )

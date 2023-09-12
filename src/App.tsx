@@ -14,7 +14,7 @@ import CartProvider from "./contexts/CartContext/CartContextProvider";
 
 function App() {
   return (
-    <CartProvider>
+    
       <Router>
         <NavBar />
         <Routes>
@@ -23,7 +23,7 @@ function App() {
           <Route path="/admin/dashboard" element={ <AdminDashBoard/>} />
         </Routes>
       </Router>
-    </CartProvider>
+    
   );
 }
 
