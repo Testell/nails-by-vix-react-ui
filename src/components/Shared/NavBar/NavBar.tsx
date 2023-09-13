@@ -5,12 +5,15 @@ import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from "framer-motion";
 import Modal from "../Modal/Modal";
 import CartIcon from "../Icons/CartIcon";
+import useCart from "../../../hooks/UseCart";
 
 
 
 
 
 function NavBar() {
+
+    const { totalItems, totalPrice } = useCart();
 
     const [color, changeColor] = useState("");
     const location = useLocation();
@@ -52,7 +55,7 @@ function NavBar() {
             onClick={() => (modalOpen ? close() : open())}
           >
             <CartIcon/>
-            
+            <p>{totalItems}</p>
           </motion.div>
           <AnimatePresence
             initial={false}
