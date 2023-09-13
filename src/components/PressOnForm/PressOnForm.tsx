@@ -1,33 +1,25 @@
 import React, { useState } from "react";
-import { useForm } from "../../hooks/useForm";
-import PressOnOrder from "../../models/PressOnOrder"
 import styles from "./PressOnForm.module.css";
 import DropDown from "../Shared/DropDown/DropDown";
-import PropTypes from 'prop-types';
-import { CartContext } from "../../contexts/CartContext/CartContext";
-import { useContext } from "react";
+import { ProductType } from "../../contexts/ProductContext/ProductProvider";
+import { ReducerActionType, ReducerAction } from "../../contexts/CartContext/CartContextProvider";
 
-interface PressOnFormProps {
-    pressOnOrder: PressOnOrder;
-    product?: {
-        id: number;
-      };
+  type PropsType = {
+    product: ProductType,
+    dispatch: React.Dispatch<ReducerAction>,
+    REDUCER_ACTIONS: ReducerActionType,
+    inCart: boolean
   }
 
-function PressOnForm(props:PressOnFormProps){
+function PressOnForm({ product, dispatch, REDUCER_ACTIONS, inCart}: PropsType){
    
-    const [size, setSize] = useState(props.pressOnOrder.size);
-    const [length, setLength] = useState(props.pressOnOrder.lengths);
-    const [shape, setShape] = useState(props.pressOnOrder.shape);
-    const [charms, setCharms] = useState(props.pressOnOrder.charms);
-    const [ design, setDesign] = useState(props.pressOnOrder.design);
+    const [size, setSize] = useState(product.size);
+    const [length, setLength] = useState(product.lengths);
+    const [shape, setShape] = useState(product.shape);
+    const [charms, setCharms] = useState(product.charms);
+    const [ design, setDesign] = useState(product.design);
 
-    const product = props.product;
-    const cart = useContext(CartContext);
-    const productQuantity = product?.id ? cart?.getProductQuantity(product.id) : 1;
-    console.log(cart?.items);
-   // const [selectedLength, setLengthOption] = useState('');
-   // const [selectedCharm, setCharmOption] = useState('');
+    const onAddToCart = () => dispatch({ type: REDUCER_ACTIONS.ADD, payload: {...product, quantity: 1}});
 
     const lengthOptions = ['Small', 'Medium', 'Long', 'XL'];
     const charmOptions = ['Yes', 'No',];
@@ -64,7 +56,7 @@ function PressOnForm(props:PressOnFormProps){
                     <textarea value={design} onChange={ (e) => setDesign(e.target.value)} placeholder="Colors, Vibes, Characters"></textarea>
                 </div>
                 <div className={styles["inspo"]}>Send any inspo photos to nailsbyvix_ on Insta</div>
-                <button type="submit" onClick={() => product && cart?.addToCart(product.id)}>Add To Cart</button>
+                <button type="submit" onClick={onAddToCart}>Add To Cart</button>
             </form>
         </div>
     )

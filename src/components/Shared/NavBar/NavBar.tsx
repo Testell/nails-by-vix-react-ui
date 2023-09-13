@@ -55,8 +55,8 @@ function NavBar() {
             onClick={() => (modalOpen ? close() : open())}
           >
             <CartIcon/>
-            <p>{totalItems}</p>
           </motion.div>
+          {/*<p>{totalItems}</p>*/}
           <AnimatePresence
             initial={false}
             mode="wait">

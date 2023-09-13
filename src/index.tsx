@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter as Router } from 'react-router-dom';
-import OrdersContextProvider from './contexts/Orders/OrdersContextProvider';
+import { ProductsProvider } from './contexts/ProductContext/ProductProvider';
+import { CartProvider } from './contexts/CartContext/CartContextProvider';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -12,9 +12,11 @@ const root = ReactDOM.createRoot(
 root.render(
   
   <React.StrictMode>
-    <OrdersContextProvider>
-      <App />
-    </OrdersContextProvider>
+    <ProductsProvider>
+      <CartProvider>
+        <App/>
+      </CartProvider>
+    </ProductsProvider> 
   </React.StrictMode>
 );
 
