@@ -60,7 +60,7 @@ function NavBar() {
           <AnimatePresence
             initial={false}
             mode="wait">
-              {modalOpen && <Modal handleClose={close} text="Your modal content here" />}
+              {modalOpen && <Modal handleClose={close} cart={true}text="" />}
           </AnimatePresence>
         </li>
         <li className={styles["menuButton"]}>

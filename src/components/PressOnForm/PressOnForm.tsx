@@ -8,10 +8,10 @@ import { ReducerActionType, ReducerAction } from "../../contexts/CartContext/Car
     product: ProductType,
     dispatch: React.Dispatch<ReducerAction>,
     REDUCER_ACTIONS: ReducerActionType,
-    inCart: boolean
+   // inCart: boolean
   }
 
-function PressOnForm({ product, dispatch, REDUCER_ACTIONS, inCart}: PropsType){
+function PressOnForm({ product, dispatch, REDUCER_ACTIONS, }: PropsType){
    
     const [size, setSize] = useState(product.size);
     const [length, setLength] = useState(product.lengths);
@@ -19,8 +19,22 @@ function PressOnForm({ product, dispatch, REDUCER_ACTIONS, inCart}: PropsType){
     const [charms, setCharms] = useState(product.charms);
     const [ design, setDesign] = useState(product.design);
 
-    const onAddToCart = () => dispatch({ type: REDUCER_ACTIONS.ADD, payload: {...product, quantity: 1}});
-
+    const onAddToCart = () =>{
+        console.log("Adding to cart:", product);
+        console.log("Adding to cart:", {
+            size,
+            length,
+            shape,
+            charms,
+            design,
+          });
+        
+     dispatch({ type: REDUCER_ACTIONS.ADD, payload: {...product, quantity: 1}});
+     
+     ;
+     
+    } 
+    
     const lengthOptions = ['Small', 'Medium', 'Long', 'XL'];
     const charmOptions = ['Yes', 'No',];
 

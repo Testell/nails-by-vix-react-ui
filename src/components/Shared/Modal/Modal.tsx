@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
 import Backdrop from "../Backdrop/Backdrop";
 import styles from "./Modal.module.css";
+import Cart from "../Cart";
 
 interface ModalProps {
   handleClose: () => void;
   text: string; 
+  cart: boolean;
 }
 
 const dropIn = {
@@ -39,6 +41,10 @@ const Modal = ({ handleClose, text}: ModalProps) => {
         animate="visible"
         exit="exit"
         >
+          {Cart ? (
+          <Cart /> 
+        ) : (
+          <>
             <p>{text}</p>
             <motion.button
             whileHover={{ scale: 1.1 }}
@@ -48,6 +54,8 @@ const Modal = ({ handleClose, text}: ModalProps) => {
             >
                 Close
             </motion.button>
+          </>
+            )}
       </motion.div>
     </Backdrop>
   );
