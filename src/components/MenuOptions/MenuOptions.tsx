@@ -15,30 +15,8 @@ gsap.registerPlugin(Flip);
 
 function MenuOptions ( ){
 
-    const defaultProduct = {
-        sku: "item00001",
-        name: "Press On Order",
-        price: 40.00,
-        size: "",
-        lengths: "",
-        shape: "",
-        charms: "",
-        design: "",
-        fullfilled: false,
-      };
-    
-    const defaultDispatch = (action: any) => {
-        // This is a placeholder dispatch function that does nothing.
-        console.log("Received action:", action);
-        // You can add more logic here if needed.
-      };
-
-      const defaultReducerActions = {
-        ADD: "ADD",
-        REMOVE: "REMOVE",
-        QUANTITY: "QUANTITY",
-        SUBMIT: "SUBMIT",
-      };
+    const { dispatch, REDUCER_ACTIONS, cart} = useCart();
+    const { products } = useProducts();
     
     
     const duration = 0.5;
@@ -62,11 +40,11 @@ function MenuOptions ( ){
                         <div>Press Ons</div>
                     </div>
                     <div className={styles["form"]}>
-                        <PressOnForm 
-                            product={defaultProduct}
-                            dispatch={defaultDispatch}
-                            REDUCER_ACTIONS={defaultReducerActions}                
-                        />
+                       { /*<PressOnForm 
+                            product={product}
+                            dispatch={dispatch}
+                            REDUCER_ACTIONS={REDUCER_ACTIONS}                
+    /> */ }
                     </div>
                 </div>
                 <div className={styles["menuOption"]}>
