@@ -15,8 +15,8 @@ const CartLineItem = ({ item, dispatch, REDUCER_ACTIONS}: PropsType) => {
 
   const highestQuantity: number = 20 > item.quantity ? 20 : item.quantity
 
-  const optionValues: number [] = [...Array(highestQuantity).keys()].
-  map(i => i + 1)
+  const optionValues: number[] = Array.from({ length: highestQuantity }, (_, i) => i + 1);
+
 
   const options: ReactElement [] = optionValues.map(val =>{
     return <option key={`opt${val}`} value={val}>{val}</option>
@@ -34,12 +34,22 @@ const CartLineItem = ({ item, dispatch, REDUCER_ACTIONS}: PropsType) => {
     payload: item,
   })
 
+  
+
   const content =(
     <li className="cartItem">
       <div aria-label="Item Name">{item.name}</div>
       <div aria-label="Price Per Item">{new Intl.NumberFormat
       ('en-US',{ style:'currency', currency: 'USD'}).format
       (item.price)}
+      </div>
+
+      <div>
+        <p>Size: {item.size}</p>
+        <p>Lengths: {item.lengths}</p>
+        <p>Shape: {item.shape}</p>
+        <p>Charms: {item.charms}</p>
+        <p>Design: {item.design}</p>
       </div>
 
       <label htmlFor="itemQuantity" className="offScreen">

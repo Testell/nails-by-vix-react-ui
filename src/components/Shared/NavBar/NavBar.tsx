@@ -19,6 +19,7 @@ function NavBar() {
     const location = useLocation();
 
     const [modalOpen, setModalOpen] = useState(false);
+    
 
     const close = () => {
       console.log("Closing modal");
