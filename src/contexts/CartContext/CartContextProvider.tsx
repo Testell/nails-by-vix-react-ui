@@ -5,6 +5,11 @@ export type CartItemType = {
     name: string,
     price: number,
     quantity: number,
+    size: string; 
+    lengths: string;
+    shape: string;
+    charms: string;
+    design: string;
 }
 
 type CartStateType = { cart: CartItemType[] }
@@ -33,7 +38,7 @@ CartStateType => {
                 throw new Error('action.payload missing in ADD action')
             }
 
-            const { sku, name, price } = action.payload
+            const { sku, name, price, size, lengths, shape, charms, design } = action.payload
 
             const filteredCart: CartItemType[] = state.cart.filter
             (item => item.sku != sku)
@@ -42,7 +47,7 @@ CartStateType => {
 
             const quantity:  number = itemExists ? itemExists.quantity + 1 : 1
 
-            return { ...state, cart: [ ...filteredCart, { sku, name, price, quantity}]}
+            return { ...state, cart: [ ...filteredCart, { sku, name, price, quantity, size, lengths, shape, charms, design}]}
         }
 
         case REDUCER_ACTION_TYPE.REMOVE: {

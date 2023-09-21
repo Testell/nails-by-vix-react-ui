@@ -15,7 +15,7 @@ export type ProductType = {
 const initState: ProductType[] = [
     {
         "sku": "item00001",
-        "name": "Press On Order",
+        "name": "Press On's",
         "price": 40.00,
         "size": "",
         "lengths": "",
