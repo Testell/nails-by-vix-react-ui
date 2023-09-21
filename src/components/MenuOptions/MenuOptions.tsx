@@ -8,6 +8,8 @@ import ProductsContext, { ProductType } from "../../contexts/ProductContext/Prod
 import useCart from "../../hooks/UseCart";
 import { UseProductsContextType } from "../../contexts/ProductContext/ProductProvider";
 import useProducts from "../../hooks/UseProducts";
+import Product from "../Shared/Product/Product";
+import ProductList from "../Shared/ProductList/ProductList";
 gsap.registerPlugin(Flip);
 
 
@@ -40,11 +42,21 @@ function MenuOptions ( ){
                         <div>Press Ons</div>
                     </div>
                     <div className={styles["form"]}>
-                       { /*<PressOnForm 
-                            product={product}
+                       {/*<PressOnForm 
+                            
                             dispatch={dispatch}
-                            REDUCER_ACTIONS={REDUCER_ACTIONS}                
-    /> */ }
+                            REDUCER_ACTIONS={REDUCER_ACTIONS} product={{
+                                sku: "",
+                                name: "",
+                                price: 0,
+                                size: "",
+                                lengths: "",
+                                shape: "",
+                                charms: "",
+                                design: "",
+                                fullfilled: false
+                            }}                        />   */}
+                            <ProductList/>
                     </div>
                 </div>
                 <div className={styles["menuOption"]}>
