@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Backdrop from "../Backdrop/Backdrop";
 import styles from "./Modal.module.css";
-import Cart from "../Cart";
+import Cart from "../Cart/Cart";
 
 interface ModalProps {
   handleClose: () => void;

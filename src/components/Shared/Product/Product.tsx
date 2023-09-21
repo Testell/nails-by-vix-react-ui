@@ -1,7 +1,8 @@
 import { ProductType } from "../../../contexts/ProductContext/ProductProvider"
 import { ReducerActionType, ReducerAction } from "../../../contexts/CartContext/CartContextProvider"
 import { ReactElement, useState } from "react"
-
+import styles from "./Product.module.css";
+import { motion } from "framer-motion";
 
 type PropsType = {
     product: ProductType,
@@ -52,38 +53,51 @@ const Product = ({product, dispatch, REDUCER_ACTIONS}:
               <p>
                 {new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(product.price)}
               </p>
-              {/* Input fields for custom attributes */}
-              <input
+              <div className={styles["formContainer"]}> 
+              <input 
+                className={styles["field"]}
                 type="text"
                 placeholder="Size"
                 value={customAttributes.size}
                 onChange={(e) => handleAttributeChange("size", e.target.value)}
               />
               <input
+                className={styles["field"]}
                 type="text"
-                placeholder="Lengths"
+                placeholder="Length"
                 value={customAttributes.lengths}
                 onChange={(e) => handleAttributeChange("lengths", e.target.value)}
               />
               <input
+                className={styles["field"]}
                 type="text"
                 placeholder="Shape"
                 value={customAttributes.shape}
                 onChange={(e) => handleAttributeChange("shape", e.target.value)}
               />
               <input
+                className={styles["field"]}
                 type="text"
                 placeholder="Charms"
                 value={customAttributes.charms}
                 onChange={(e) => handleAttributeChange("charms", e.target.value)}
             />
-            <input
-                type="text"
+            <textarea
+                className={styles["field"]}
                 placeholder="Design"
                 value={customAttributes.design}
                 onChange={(e) => handleAttributeChange("design", e.target.value)}
             />
-            <button onClick={onAddToCart}>Add To Cart</button>
+            
+            <motion.button
+            onClick={onAddToCart}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9}}
+            className={styles["addToCartButton"]}
+            >
+                Add To Cart
+            </motion.button>
+            </div>
             </article>
         );
         };

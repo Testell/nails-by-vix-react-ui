@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import useCart from "../../hooks/UseCart";
-import CartLineItem from "./CartLineItem";
+import useCart from "../../../hooks/UseCart";
+import CartLineItem from "../CartLineItem";
+import { motion } from "framer-motion";
+import styles from "./Cart.module.css"
 import { ReactElement } from "react";
-import { CartItemType } from "../../contexts/CartContext/CartContextProvider";
+import { CartItemType } from "../../../contexts/CartContext/CartContextProvider";
 
 function Cart() {
   const [confirm, setConfirm] = useState(false);
@@ -31,13 +33,16 @@ function Cart() {
       <div className="cart__totals">
         <p>Total Items: {totalItems}</p>
         <p>Total Price: {totalPrice}</p>
-        <button
-          className="cart__submit"
-          disabled={!totalItems}
-          onClick={onSubmitOrder}
-        >
-          Place Order
-        </button>
+        
+        <motion.button
+            onClick={onSubmitOrder}
+            disabled={!totalItems}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9}}
+            className={styles["orderButton"]}
+            >
+                Place Order
+            </motion.button>
       </div>
     </>
   );
