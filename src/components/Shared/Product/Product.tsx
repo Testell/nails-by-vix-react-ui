@@ -78,6 +78,7 @@ const Product = ({ product, dispatch, REDUCER_ACTIONS }: PropsType): ReactElemen
   };
 
   return (
+    <>
     <article>
       <h3>{product.name}</h3>
       <p>{new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(product.price)}</p>
@@ -127,7 +128,8 @@ const Product = ({ product, dispatch, REDUCER_ACTIONS }: PropsType): ReactElemen
           Add To Cart
         </motion.button>
       </div>
-      {notifications.map((notification, index) => (
+    </article>
+    {notifications.map((notification, index) => (
     <Notification
       key={index}
       notification={notification}
@@ -135,7 +137,7 @@ const Product = ({ product, dispatch, REDUCER_ACTIONS }: PropsType): ReactElemen
       setNotifications={setNotifications}
     />
   ))}
-    </article>
+    </>
   );
 };
 
