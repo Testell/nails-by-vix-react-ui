@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./Notification.module.css";
 import { motion, SVGMotionProps, Variants } from "framer-motion"; // Import Variants from framer-motion
 import { remove } from "../../../hooks/arr-utils";
 import { JSX } from "react/jsx-runtime";
@@ -35,6 +36,7 @@ const Notification = ({ notifications, setNotifications, notification }: any) =>
   };
 
   return (
+    <div className={styles["notificationContainer"]}>
     <motion.li
       //positionTransition
       style={styleType()} // Change the style based on style selection
@@ -44,11 +46,12 @@ const Notification = ({ notifications, setNotifications, notification }: any) =>
       animate="animate" // Values to animate to
       exit="exit" // Target to animate to when removed from the tree
     >
-      <h3 style={{ color: style ? "#030303" : "#929292" }} className="notification-text">
+      <h3 style={{ color: style ? "#030303" : "#929292" }} className={styles["notificationText"]}>
         {text}
       </h3>
       <CloseButton color={style ? "#030303" : "#989898"} handleClose={handleClose} />
     </motion.li>
+    </div>
   );
 };
 
@@ -65,7 +68,7 @@ const Path = (props: JSX.IntrinsicAttributes & SVGMotionProps<SVGPathElement> & 
   
 
   const CloseButton = ({ handleClose, color }: { handleClose: () => void; color: string }) => (
-    <motion.div whileHover={{ scale: 1.2 }} onClick={handleClose} className="close">
+    <motion.div whileHover={{ scale: 1.2 }} onClick={handleClose} className={styles["closeButton"]}>
       <svg width="18" height="18" viewBox="0 0 23 23">
         <Path color={color} d="M 3 16.5 L 17 2.5" />
         <Path color={color} d="M 3 2.5 L 17 16.346" />
