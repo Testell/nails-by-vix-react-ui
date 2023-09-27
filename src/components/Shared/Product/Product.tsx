@@ -2,8 +2,9 @@ import { ProductType } from "../../../contexts/ProductContext/ProductProvider";
 import { ReducerActionType, ReducerAction } from "../../../contexts/CartContext/CartContextProvider";
 import { ReactElement, SetStateAction, useState } from "react";
 import styles from "./Product.module.css";
-import { motion } from "framer-motion";
-import Notification from "../Notification/Notification";
+import { AnimatePresence, motion } from "framer-motion";
+import Toast from "../Notification/Toast";
+
 
 type PropsType = {
   product: ProductType;
@@ -129,15 +130,31 @@ const Product = ({ product, dispatch, REDUCER_ACTIONS }: PropsType): ReactElemen
         </motion.button>
       </div>
     </article>
-    {notifications.map((notification, index) => (
-    <Notification
+    <NotificationContainer position={position}>
+  {notifications.map((notification, index) => (
+    <Toast
       key={index}
       notification={notification}
       notifications={notifications}
       setNotifications={setNotifications}
     />
   ))}
+</NotificationContainer>
+
     </>
+  );
+};
+const NotificationContainer: React.FC<{ children: React.ReactNode; position: string }> = ({ children, position }) => {
+  return (
+    <div className="toastContainer">
+      <ul className={position}>
+        <AnimatePresence
+          initial={false}
+        >
+          {children}
+        </AnimatePresence>
+      </ul>
+    </div>
   );
 };
 
