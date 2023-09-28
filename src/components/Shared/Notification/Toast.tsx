@@ -47,7 +47,7 @@ const Toast = ({ notifications, setNotifications, notification }: any) => {
       initial="initial" // Starting animation
       animate="animate" // Values to animate to
       exit="exit" // Target to animate to when removed from the tree
-      className={styles["notificationContainer"]}
+      //className={styles["notificationContainer"]}
     >
       <h3 style={{ color: style ? "#030303" : "#929292" }} className={styles["notificationText"]}>
         {text}

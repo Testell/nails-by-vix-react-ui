@@ -25,17 +25,18 @@
     border-radius: 25px;
     margin: auto;
     height: 50px;
-    width: 365px;
+    width: 10px;
     position: fixed;
     bottom: 0;
     right: 0;
     font-size: 20px;
+    
   }
 
   .notificationText {
     margin: auto auto auto 0;
     padding: 0;
-    font-size: 100%;
+    font-size: 20px;
     font-weight: 600;
     letter-spacing: 0.25px;
     
