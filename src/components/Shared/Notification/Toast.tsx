@@ -1,84 +1,64 @@
-import React from "react";
-import styles from "./Toast.module.css";
-import { motion, SVGMotionProps, Variants } from "framer-motion"; // Import Variants from framer-motion
-import { remove } from "../../../hooks/arr-utils";
-import { JSX } from "react/jsx-runtime";
+import React, { useEffect } from 'react';
+import styles from './Toast.module.css'; // Import the CSS module
+import { gsap } from 'gsap';
 
-const notificationVariants: Variants = { // Declare notificationVariants with Variants type
-  initial: {
-    opacity: 0,
-    y: 50,
-    scale: 0.2,
-    transition: { duration: 0.1 },
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-  },
-  exit: {
-    opacity: 0,
-    scale: 0.2,
-    transition: { ease: "easeOut", duration: 0.15 },
-  },
-  hover: { scale: 1.05, transition: { duration: 0.1 } },
-};
+interface ToastProps {
+  message: string;
+  type: 'default' | 'success' | 'attention' | 'alert' | 'info'; // Include the 'type' prop
+  onClose: () => void;
+}
 
+const Toast: React.FC<ToastProps> = ({ message, type, onClose }) => {
+  useEffect(() => {
+    gsap.fromTo(
+      `.${styles.notify}`,
+      {
+        opacity: 0,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: 'power3.out',
+      }
+    );
 
-
-const Toast = ({ notifications, setNotifications, notification }: any) => { 
-
-  const { text, style } = notification;
-
-  const handleClose = () => setNotifications(remove(notifications, notification));
-
-  const styleType = () => {
     
-    return {};
-  };
+    const closeTimeout = setTimeout(() => {
+      onClose();
+    }, 6000); 
+
+   
+    return () => {
+      clearTimeout(closeTimeout);
+    };
+  }, [onClose]);
 
   return (
-    
-    <motion.li
-      layout
-      style={styleType()} // Change the style based on style selection
-      variants={notificationVariants} // Use the declared notificationVariants
-      //whileHover="hover" // Animation on hover gesture
-      initial="initial" // Starting animation
-      animate="animate" // Values to animate to
-      exit="exit" // Target to animate to when removed from the tree
-      //className={styles["notificationContainer"]}
-    >
-      <h3 style={{ color: style ? "#030303" : "#929292" }} className={styles["notificationText"]}>
-        {text}
-      </h3>
-      <CloseButton color={style ? "#030303" : "#989898"} handleClose={handleClose} />
-    </motion.li>
-   
+    <div className={`${styles.notify} ${styles[`notify--${type}`]}`}>
+      <span className={styles.notify__message}>{message}</span>
+      <button
+        type="button"
+        className={styles.notify__close}
+        aria-label="Close"
+        onClick={onClose}
+        style={{ background: 'none', border: 'none', padding: '0' }} 
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className={styles.notify__icon}
+          style={{ background: 'none', padding: 0 }} 
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
   );
 };
-
-const Path = (props: JSX.IntrinsicAttributes & SVGMotionProps<SVGPathElement> & React.RefAttributes<SVGPathElement>) => (
-  <motion.path
-    fill="transparent"
-    strokeWidth="3"
-    stroke={props.color}
-    strokeLinecap="square"
-    {...props}
-  />
-);
-
-
-
-const CloseButton = ({ handleClose, color }: { handleClose: () => void; color: string }) => (
-  <motion.div whileHover={{ scale: 1.2 }} onClick={handleClose} className={styles["closeButton"]}>
-    <svg width="18" height="18" viewBox="0 0 23 23">
-      <Path color={color} d="M 3 16.5 L 17 2.5" />
-      <Path color={color} d="M 3 2.5 L 17 16.346" />
-    </svg>
-  </motion.div>
-);
-
-
 
 export default Toast;

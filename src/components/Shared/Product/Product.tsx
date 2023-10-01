@@ -130,32 +130,26 @@ const Product = ({ product, dispatch, REDUCER_ACTIONS }: PropsType): ReactElemen
         </motion.button>
       </div>
     </article>
-    <NotificationContainer position={position}>
-  {notifications.map((notification, index) => (
-    <Toast
-      key={index}
-      notification={notification}
-      notifications={notifications}
-      setNotifications={setNotifications}
-    />
-  ))}
-</NotificationContainer>
+    
+    {notifications.map((notification, index) => (
+  <Toast
+    key={index} // Don't forget to add a unique key when mapping over an array
+    message={notification.text}
+    type={"success"}
+    onClose={() => {
+      // Remove the notification from the state by creating a new array
+      const updatedNotifications = [...notifications];
+      updatedNotifications.splice(index, 1);
+      setNotifications(updatedNotifications);
+    }}
+  />
+))}
+
+
 
     </>
   );
 };
-const NotificationContainer: React.FC<{ children: React.ReactNode; position: string }> = ({ children, position }) => {
-  return (
-    <div className="toastContainer">
-      <ul className={position}>
-        <AnimatePresence
-          initial={false}
-        >
-          {children}
-        </AnimatePresence>
-      </ul>
-    </div>
-  );
-};
+
 
 export default Product;
