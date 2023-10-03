@@ -9,3 +9,12 @@
     align-items: center;
     background-color: #fde5ac;
 }
+
+.responsive-height {
+    flex-grow: 1; /* Allow the content to grow vertically */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Vertically center content */
+    padding: 1rem; /* Add padding to content */
+  }

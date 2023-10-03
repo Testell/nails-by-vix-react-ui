@@ -41,6 +41,7 @@ const Modal = ({ handleClose, text}: ModalProps) => {
         animate="visible"
         exit="exit"
         >
+          <div className={styles["responsive-height"]}>
           {Cart ? (
           <Cart /> 
         ) : (
@@ -56,6 +57,7 @@ const Modal = ({ handleClose, text}: ModalProps) => {
             </motion.button>
           </>
             )}
+            </div>
       </motion.div>
     </Backdrop>
   );
